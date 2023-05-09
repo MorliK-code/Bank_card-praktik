@@ -17,7 +17,7 @@
   </div>
 
     <div class="row">
-        <div class="clo-12 clo-ml-3">
+        <div class="clo-3 clo-ml-12">
             <#-- leftmenu -->
             <#include "leftBar.ftl">
         </div>
