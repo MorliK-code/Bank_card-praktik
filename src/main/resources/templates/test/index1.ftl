@@ -97,7 +97,7 @@
     <input type="submit" name="Log in" value="Log in">
   </form>
 <h2>Картинка</h2>
-<img src="img/fon.png" alt="Рабочий фон">
+<img src="../img/fon.png" alt="Рабочий фон">
   <h2>Переходы</h2>
   <a href="/home">go to home</a>
   </body>

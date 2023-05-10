@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<h1>Hello World!!!</h1>>
 <body>
+<h2>REGISTRATION</h2>
+<a href="/">home</a><br>
+<a href="/login">login</a><br>
 <a href="/work">work</a>
 </body>
 </html>

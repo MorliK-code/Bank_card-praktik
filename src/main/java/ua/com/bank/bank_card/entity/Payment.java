@@ -3,12 +3,7 @@ package ua.com.bank.bank_card.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+@Data
 
 @Entity
 @Table(name = "payment")

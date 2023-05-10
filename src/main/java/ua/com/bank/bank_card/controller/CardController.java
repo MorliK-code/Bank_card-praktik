@@ -1,6 +1,5 @@
 package ua.com.bank.bank_card.controller;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,11 +20,12 @@ public class CardController {
     public CardController(CardService cardService){
         this.cardService = cardService;
     }
-    @GetMapping("/card")
-    public String getPageCard(@NotNull Model model){
+    @GetMapping("/working")
+    public String getPageCard(Model model){
+
         List<Card> cardList = cardService.getAllCard();
         model.addAttribute(  "allCard", cardList);
 
-        return "home";
+        return "work";
     }
 }

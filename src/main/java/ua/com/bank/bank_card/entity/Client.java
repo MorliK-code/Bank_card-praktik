@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import java.util.List;
 
 @Data
 
@@ -32,6 +31,8 @@ public class Client {
 
     @Email(message = "Невірний email")
     private String email;
+    @Column(name = "address")
+    private String address;
 
     @Min(value = 8, message = "Мінімальна кількість символів - 8")
     private int phone;

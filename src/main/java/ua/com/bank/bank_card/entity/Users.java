@@ -13,7 +13,7 @@ import java.util.Set;
 @Data
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class Users implements UserDetails {
 
     @Id
@@ -26,7 +26,7 @@ public class Users implements UserDetails {
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Role> roles = new HashSet<>();
+    private Set<Roles> roles = new HashSet<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

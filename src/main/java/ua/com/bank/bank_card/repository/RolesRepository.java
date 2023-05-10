@@ -1,9 +1,8 @@
 package ua.com.bank.bank_card.repository;
 
-import jdk.jfr.Registered;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ua.com.bank.bank_card.entity.Role;
+import ua.com.bank.bank_card.entity.Roles;
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long> {
+public interface RolesRepository extends JpaRepository<Roles, Long> {
 }

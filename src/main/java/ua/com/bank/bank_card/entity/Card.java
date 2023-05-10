@@ -4,12 +4,7 @@ package ua.com.bank.bank_card.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+@Data
 
 @Entity
 @Table(name = "card")
@@ -19,9 +14,9 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int number;
+    private String number;
 
-    private int cvv;
+    private int cvc;
 
     private int month;
 
