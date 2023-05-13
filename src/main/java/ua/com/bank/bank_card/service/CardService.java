@@ -54,4 +54,5 @@ public class CardService {
     public List<Card> getCardList(){
         return cardRepository.findAll();
     }
+
 }

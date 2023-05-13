@@ -18,33 +18,23 @@ public class Client {
     private Long id;
 
     @Size(min = 2, max = 14, message = "Кількість символів повинна бути більша 2, але менша 14 символів")
-    @Column(name = "first_name")
     private String firstName;
 
     @Size(min = 2, max = 14, message = "Кількість символів повинна бути більша 2, але менша 14 символів")
-    @Column(name = "last_name")
     private String lastName;
 
     @Size(min = 2, max = 14, message = "Кількість символів повинна бути більша 2, але менша 14 символів")
-    @Column(name = "father_name")
     private String fatherName;
 
     @Email(message = "Невірний email")
     private String email;
-    @Column(name = "address")
-    private String address;
 
     @Min(value = 8, message = "Мінімальна кількість символів - 8")
-    private int phone;
+    private String phone;
 
     @Min(value = 2, message = "Мінімальна кількість символів - 2")
     private int age;
-
-    @OneToOne
-    @MapKey
-    @MapsId
-    @JoinColumn(name = "id")
-    private Account account;
+    
 
     @OneToOne
     @MapKey

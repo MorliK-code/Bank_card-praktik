@@ -7,5 +7,4 @@ import ua.com.bank.bank_card.entity.Client;
 import java.util.List;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
-
 }

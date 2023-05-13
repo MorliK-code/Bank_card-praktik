@@ -21,6 +21,7 @@ public class Card {
     private int month;
 
     private int year;
+    private boolean block;
 
     @ManyToOne
     @JoinColumn(name = "account_id")

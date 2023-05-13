@@ -1,18 +1,5 @@
-.container{
-    background: aqua;
-}
-
-.row{
-    background: brown;
-    height: 300px;
-}
-.row{
-    text-align: center;
-    height: 50px;
-}
-.row div:nth-child(old){
-    background: coral;
-}
-.row div:nth-child(even){
-    background: coral;
+.form-control {
+    font-size: 14px;
+    height: 30px;
+    width: 200px;
 }

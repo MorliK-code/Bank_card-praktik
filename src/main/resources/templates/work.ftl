@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h2>WORK PAGE</h2>
-<a href="/">home</a><br>
-<a href="/reg">reg</a><br>
-<a href="/login">login</a>
-</body>
-</html>
+<#import "parts/templ.ftl" as p>
+<@p.pages>
+
+    <h1>BANK</h1>
+    <a href="/login">Логін</a>
+    <a href="/register">Регістрація</a>
+    <a href="/">Головна частина</a>
+
+
+
+
+</@p.pages>

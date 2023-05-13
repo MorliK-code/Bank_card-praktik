@@ -1,7 +1,6 @@
 package ua.com.bank.bank_card.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,9 +19,9 @@ public class Users implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 2, max = 14, message = "Кількість символів повинна бути більша 2, але менша 14 символів")
+
     private String username;
-    @Size(min = 2, message = "Кількість символів повинна бути більша 2")
+
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
