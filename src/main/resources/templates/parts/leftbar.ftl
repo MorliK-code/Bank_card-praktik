@@ -5,4 +5,5 @@
     <a href="/work" class="list-group-item list-group-item-action">Робоча частина</a>
     <a href="/register" class="list-group-item list-group-item-action">Реестрування</a>
     <a href="/login" class="list-group-item list-group-item-action">Авторизація</a>
+    <a href="/editcards" class="list-group-item list-group-item-action">Редагування карт</a>
 </div>

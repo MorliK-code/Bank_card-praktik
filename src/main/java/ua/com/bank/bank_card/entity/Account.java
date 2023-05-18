@@ -15,9 +15,9 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int number;
+    private String number;
 
-    private boolean blocked;
+    private boolean blocked = false;
 
     @OneToMany(mappedBy = "account")
     private List<Card> card;

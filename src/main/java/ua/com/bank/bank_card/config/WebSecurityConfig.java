@@ -1,4 +1,4 @@
-package ua.com.bank.bank_card.configuration;
+package ua.com.bank.bank_card.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,24 +15,24 @@ import ua.com.bank.bank_card.service.UsersManagerService;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-    private final UsersManagerService usersManagerService;
+    private final UsersManagerService usersService;
 
     @Autowired
-    public WebSecurityConfig(UsersManagerService usersManagerService) {
-        this.usersManagerService = usersManagerService;
+    public WebSecurityConfig(UsersManagerService usersService) {
+        this.usersService = usersService;
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public SecurityFilterChain spiFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain spiFilterChain(HttpSecurity http) throws Exception {
 
         http.authenticationManager(
                 http.getSharedObject(AuthenticationManagerBuilder.class)
-                        .userDetailsService(usersManagerService)
+                        .userDetailsService(usersService)
                         .passwordEncoder(passwordEncoder())
                         .and()
                         .build());
@@ -40,25 +40,18 @@ public class WebSecurityConfig {
         http
                 .csrf()
                 .disable()
-                .authorizeHttpRequests((authorize)->authorize
-                        .requestMatchers("/","/register", "/register/**").permitAll()
-                        .requestMatchers("/categorymanager","/productmanager", "/customermanager")
-                        .hasRole("Admin")
-                        .requestMatchers("/info")
-                        .hasRole("User")
-                        .requestMatchers("/manager")
-                        .hasRole("Manager")
+                .authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers("/", "/info" ,"/register", "/register/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin((form)-> form
+                .formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll()
-                        .defaultSuccessUrl("/")
+                        .defaultSuccessUrl("/work")
                 )
-                .logout((logout)->logout
+                .logout((logout) -> logout
                         .permitAll()
                         .logoutSuccessUrl("/"));
-
         return http.build();
     }
 }

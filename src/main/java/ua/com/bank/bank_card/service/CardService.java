@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import ua.com.bank.bank_card.entity.Card;
 import ua.com.bank.bank_card.repository.CardRepository;
 
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CardService {
@@ -22,9 +24,8 @@ public class CardService {
         return cardRepository.findAll();
     }
 
-    public Card saveCard(Long id, String number, int cvc, int month, int year){
+    public Card saveCard(String number, int cvc, int month, int year){
         Card card = new Card();
-        card.setId(id);
         card.setNumber(number);
         card.setCvc(cvc);
         card.setMonth(month);
@@ -33,26 +34,23 @@ public class CardService {
         return card1;
     }
 
-    public Card updateCard(Long id, String number, int cvc, int month, int year){
+    public Card updateCard(int cvc, boolean block){
         Card card = new Card();
-        card.setId(id);
-        card.setNumber(number);
         card.setCvc(cvc);
-        card.setMonth(month);
-        card.setYear(year);
+        card.setBlock(block);
         Card card1 = cardRepository.save(card);
         return card1;
     }
-
-    public Card deleteCard(Long id){
+    public void deleteCard(Long id){
         cardRepository.deleteById(id);
-        return null;
     }
-    public void deleteAllCard(){
-        cardRepository.deleteAll();
+    public void updateCardState(Long cardId) {
+        Card card = cardRepository.findById(cardId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid card ID: " + cardId));
+        card.setBlock(!card.isBlock());
+        cardRepository.save(card);
     }
     public List<Card> getCardList(){
         return cardRepository.findAll();
     }
-
 }
