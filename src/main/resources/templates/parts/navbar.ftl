@@ -12,7 +12,7 @@
                         <a class="nav-link active" href="/">Головна</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Про нас</a>
+                        <a class="nav-link" href="/info">Про нас</a>
                     </li>
                 </ul>
             </div>

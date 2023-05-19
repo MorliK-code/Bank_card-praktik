@@ -81,7 +81,7 @@
     font-size: 45px;
     text-align: center;
     margin-bottom: 10px;
-    color: #adadad; /* Цвет номера карты */
+    color: #adadad;
 }
 
 .card-month-year {
@@ -90,7 +90,7 @@
     position: absolute;
     bottom: 55px;
     left: 210px;
-    color: #adadad; /* Цвет месяца и года */
+    color: #adadad;
 }
 
 .card-cvc {
@@ -99,7 +99,22 @@
     position: absolute;
     bottom: 52px;
     right: 70px;
-    color: #adadad; /* Цвет CVC */
+    color: #adadad;
+}
+
+.card .btn-blocked {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+}
+
+.card-balance {
+    font-size: 27px;
+    font-family: Droid Sans Mono;
+    position: absolute;
+    top: 38px;
+    right: 50px;
+    color: #adadad;
 }
 
 .card-back {

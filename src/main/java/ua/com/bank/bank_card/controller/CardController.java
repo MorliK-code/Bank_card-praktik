@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.com.bank.bank_card.entity.Card;
+import ua.com.bank.bank_card.repository.AccountRepository;
 import ua.com.bank.bank_card.service.CardService;
 
 
@@ -37,14 +38,19 @@ public class CardController {
     }
 
     @PostMapping("updateCards")
-    public String updateCards(@RequestParam("cvc") int cvc,
-                              @RequestParam("block") boolean block) {
-        cardService.updateCard(cvc, block);
+    public String updateCards(@RequestParam("block") boolean block) {
+        cardService.updateCard(block);
         return "redirect:/editcards";
     }
+    @PostMapping("updateBalance")
+    public String updateBalance(@RequestParam("cardId") Long cardId, @RequestParam("newBalance") double newBalance){
+        cardService.updateBalance(cardId, newBalance);
+        return "redirect:/editcards";
+    }
+
     @PostMapping("updateCardState")
-    public String updateCard(@RequestParam("cardId") Long cardId) {
-        cardService.updateCardState(cardId);
+    public String updateCardState(@RequestParam("cardId") Long cardId, @RequestParam("accountId") Long accountId) {
+        cardService.updateCardState(cardId, accountId);
         return "redirect:/editcards";
     }
 
