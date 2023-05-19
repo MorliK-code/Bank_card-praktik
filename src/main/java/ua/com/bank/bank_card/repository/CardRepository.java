@@ -9,4 +9,7 @@ import java.util.List;
 
 @Repository
 public interface CardRepository extends JpaRepository<Card, Long> {
+    Card findByNumber(String number);
+    boolean existsByNumber(String number);
+
 }

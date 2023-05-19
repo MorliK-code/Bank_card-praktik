@@ -45,7 +45,7 @@
     </nav>
 </div>
 
-<div class="container-fluid" style="max-width: 100%">
+<div class="container-fluid">
     <div class="row content-center">
         <div class="col-xl-4 col-lg-6 col-sm-10 center-items container my-5">
             <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
@@ -68,11 +68,6 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-        crossorigin="anonymous"></script>
+<script src="/static/scripts/boodstrap.js"></script>
 </body>
 </html>

@@ -13,7 +13,9 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int recipient_number;
+    private String senderNumber;
+    private String recipientNumber;
+    private double amount;
 
     @ManyToOne
     @JoinColumn(name = "card_id")

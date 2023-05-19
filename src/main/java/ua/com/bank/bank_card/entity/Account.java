@@ -31,4 +31,11 @@ public class Account {
             this.setBlocked(card.isBlock());
         }
     }
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 }

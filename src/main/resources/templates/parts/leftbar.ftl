@@ -1,74 +1,4 @@
-<style>
-    .offcanvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 250px;
-        background-color: rgb(255, 255, 255);
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 9999;
-        overflow-y: auto;
-        padding-top: 60px;
-        padding-right: 30px;
-    }
-
-    .offcanvas.open {
-        transform: translateX(0);
-    }
-
-    .offcanvas-header {
-        display: flex;
-        padding: 20px;
-        border-bottom: none;
-        position: relative;
-    }
-
-    .offcanvas-title {
-        position: absolute;
-        top: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-weight: bold;
-        font-size: 2rem;
-        margin-bottom: 0;
-    }
-
-    .offcanvas-header .btn-close {
-        position: absolute;
-        top: -20px;
-        right: -15px;
-        transform: translateY(-50%);
-        font-size: 1.5rem;
-    }
-
-    .offcanvas-body {
-        padding: 1rem;
-    }
-
-    .offcanvas-body ul.list-group .list-group-item button {
-        /* Стили для кнопок внутри list-group */
-        display: block;
-        width: 100%;
-        text-align: left;
-        padding: 0.5rem 1rem;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-    }
-
-    .navbar-light {
-        background-color: transparent !important;
-    }
-</style>
-
-<script>
-    function redirectTo(url) {
-        window.location.href = url;
-    }
-</script>
-
+<link rel="stylesheet" href="/static/css/leftbar.css">
 <nav class="navbar navbar-light bg-light">
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenu"
@@ -91,16 +21,17 @@
                         <button type="button" onclick="redirectTo('/work')">Робоча частина</button>
                     </li>
                     <li class="list-group-item">
-                        <button type="button" onclick="redirectTo('/register')">Реестрування</button>
+                        <button type="button" onclick="redirectTo('/editcards')">Редагування карт</button>
                     </li>
                     <li class="list-group-item">
                         <button type="button" onclick="redirectTo('/login')">Авторизація</button>
                     </li>
                     <li class="list-group-item">
-                        <button type="button" onclick="redirectTo('/editcards')">Редагування карт</button>
+                        <button type="button" onclick="redirectTo('/register')">Реестрування</button>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </nav>
+<script src="/static/scripts/leftbar.js"></script>

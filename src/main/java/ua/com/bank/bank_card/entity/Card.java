@@ -22,7 +22,13 @@ public class Card {
 
     private int year;
     private boolean block = false;
+    public double getBalance() {
+        return account.getBalance();
+    }
 
+    public void setBalance(double balance) {
+        account.setBalance(balance);
+    }
     @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;

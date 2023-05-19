@@ -15,12 +15,6 @@ import ua.com.bank.bank_card.service.UsersManagerService;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-    private final UsersManagerService usersService;
-
-    @Autowired
-    public WebSecurityConfig(UsersManagerService usersService) {
-        this.usersService = usersService;
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -30,18 +24,11 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain spiFilterChain(HttpSecurity http) throws Exception {
 
-        http.authenticationManager(
-                http.getSharedObject(AuthenticationManagerBuilder.class)
-                        .userDetailsService(usersService)
-                        .passwordEncoder(passwordEncoder())
-                        .and()
-                        .build());
-
         http
                 .csrf()
                 .disable()
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/", "/info" ,"/register", "/register/**").permitAll()
+                        .requestMatchers("/", "/info" ,"/register", "/register/**", "/static/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

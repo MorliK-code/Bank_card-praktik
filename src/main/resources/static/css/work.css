@@ -110,7 +110,8 @@
 
 .card-balance {
     font-size: 27px;
-    font-family: Droid Sans Mono;
+    font-family:  monospace;
+    font-weight: bold;
     position: absolute;
     top: 38px;
     right: 50px;

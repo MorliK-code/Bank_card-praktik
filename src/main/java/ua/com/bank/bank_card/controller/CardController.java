@@ -30,8 +30,7 @@ public class CardController {
         model.addAttribute("allCard", cardList);
         return "editcards";
     }
-
-    @PostMapping("addCards")
+@PostMapping("addCards")
     public String saveNewCardsToBD(@RequestParam("number") String number, @RequestParam("cvc") int cvc, @RequestParam("month") int month, @RequestParam("year") int year) {
         cardService.saveCard(number, cvc, month, year);
         return "redirect:/editcards";

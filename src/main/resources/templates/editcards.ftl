@@ -5,7 +5,7 @@
         <div class="col-xl-5 col-lg-8 col-sm-10 center-items">
             <div class="shadow bg-body-tertiary rounded">
                 <div class="fw-bolder fs-1 center-title">Додати карту</div>
-                <form action="addCards" method="post" class="mx-auto center-items">
+                <form action="addCards" method="post" class="mx-auto center-items"">
                     <div class="mb-2">
                         <label for="numbers" class="form-label">16-ти значний номер карти</label>
                         <input type="text" class="form-control" id="numbers" name="number"
