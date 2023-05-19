@@ -11,5 +11,5 @@ import java.util.List;
 public interface CardRepository extends JpaRepository<Card, Long> {
     Card findByNumber(String number);
     boolean existsByNumber(String number);
-
+    void deleteById(Long id);
 }

@@ -1,5 +1,6 @@
 .card-list {
     display: flex;
+    overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-padding: 20px;
@@ -9,7 +10,9 @@
     scrollbar-width: thin;
     scrollbar-color: #999999 transparent;
 }
-
+.title-text{
+    margin: 10px;
+}
 .card-list::-webkit-scrollbar {
     width: 6px;
 }
@@ -34,8 +37,8 @@
     cursor: pointer;
     outline: none;
     border: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 20px;
+    margin-right: 20px;
     scroll-snap-align: start;
     background-color: transparent;
     flex-shrink: 0;
@@ -129,4 +132,21 @@
 
 .card.flipped .card-inner {
     transform: rotateY(180deg);
+}
+.center-items{
+    align-items: center;
+    text-align: center;
+}
+.center-title{
+    text-align: center;
+}
+.content-center{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.shadow{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    margin-bottom: 5rem;
 }

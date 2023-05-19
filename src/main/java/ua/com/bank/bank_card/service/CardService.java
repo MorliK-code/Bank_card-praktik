@@ -1,11 +1,13 @@
 package ua.com.bank.bank_card.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.com.bank.bank_card.entity.Account;
 import ua.com.bank.bank_card.entity.Card;
 import ua.com.bank.bank_card.repository.AccountRepository;
 import ua.com.bank.bank_card.repository.CardRepository;
+import ua.com.bank.bank_card.repository.PaymentRepository;
 
 import java.util.AbstractCollection;
 import java.util.List;
@@ -15,11 +17,13 @@ public class CardService {
 
     private final CardRepository cardRepository;
     private final AccountRepository accountRepository;
+    private final PaymentRepository paymentRepository;
 
     @Autowired
-    public CardService(CardRepository cardRepository, AccountRepository accountRepository){
+    public CardService(CardRepository cardRepository, AccountRepository accountRepository, PaymentRepository paymentRepository){
         this.cardRepository = cardRepository;
         this.accountRepository = accountRepository;
+        this.paymentRepository = paymentRepository;
     }
 
     public List<Card> getAllCard(){
@@ -60,8 +64,15 @@ public class CardService {
         accountRepository.save(account);
     }
 
-    public void deleteCard(Long id){
-        cardRepository.deleteById(id);
+    @Transactional
+    public void deleteCard(Long id) {
+        Card card = cardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Неверный идентификатор карты: " + id));
+
+        // Удаление платежей, связанных с картой
+        paymentRepository.deleteByCardId(card.getId());
+
+        cardRepository.delete(card);
     }
 
     public void updateCardState(Long cardId, Long accountId) {

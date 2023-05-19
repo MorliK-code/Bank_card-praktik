@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/static/css/leftbar.css">
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light fixed-top">
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenu"
                 aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,6 +28,9 @@
                     </li>
                     <li class="list-group-item">
                         <button type="button" onclick="redirectTo('/register')">Реестрування</button>
+                    </li>
+                    <li class="list-group-item">
+                        <button type="button" onclick="redirectTo('/logout')">Вихід</button>
                     </li>
                 </ul>
             </div>
