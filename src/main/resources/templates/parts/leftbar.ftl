@@ -24,6 +24,9 @@
                         <button type="button" onclick="redirectTo('/editcards')">Редагування карт</button>
                     </li>
                     <li class="list-group-item">
+                        <button type="button" onclick="redirectTo('/paymenthistory')">Історія платежів</button>
+                    </li>
+                    <li class="list-group-item">
                         <button type="button" onclick="redirectTo('/login')">Авторизація</button>
                     </li>
                     <li class="list-group-item">
