@@ -2,10 +2,10 @@
 <@p.pages>
     <table class="table">
         <tr>
-            <th>ID платежа</th>
-            <th>Номер отправителя</th>
-            <th>Номер получателя</th>
-            <th>Сумма</th>
+            <th>ID платежу</th>
+            <th>Номер відправника</th>
+            <th>Номер отримувача</th>
+            <th>Сума переводу</th>
             <th>Статус</th>
         </tr>
         <#if paymentHistory?has_content>
