@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository
 public interface PaymentHistoryRepository extends JpaRepository<PaymentHistory, Long> {
-    @Query("SELECT p, ph.status FROM Payment p JOIN p.paymentHistory ph")
-    List<Object[]> getAllPaymentHistory();
+    List<PaymentHistory> findAll();
 }

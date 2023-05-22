@@ -11,4 +11,5 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
     @Modifying
     @Query("DELETE FROM Payment p WHERE p.card.id = :cardId")
     void deleteByCardId(@Param("cardId") Long cardId);
+    Payment save(Payment payment);
 }

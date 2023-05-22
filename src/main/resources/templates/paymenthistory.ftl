@@ -8,20 +8,20 @@
             <th>Сумма</th>
             <th>Статус</th>
         </tr>
-        <#list paymentHistory as history>
+        <#if paymentHistory?has_content>
+            <#list paymentHistory as history>
+                <tr>
+                    <td>${history.payment.id}</td>
+                    <td>${history.payment.senderNumber}</td>
+                    <td>${history.payment.recipientNumber}</td>
+                    <td>${history.payment.amount}</td>
+                    <td>${history.status}</td>
+                </tr>
+            </#list>
+        <#else>
             <tr>
-                <td>${history[0].id}</td>
-                <td>${history[0].senderNumber}</td>
-                <td>${history[0].recipientNumber}</td>
-                <td>${history[0].amount}</td>
-                <td>
-                    <#if history[1] == "Completed">
-                        Успішно
-                    <#else>
-                        Без успішно
-                    </#if>
-                </td>
+                <td colspan="5">Історія платежів відсутся</td>
             </tr>
-        </#list>
+        </#if>
     </table>
 </@p.pages>

@@ -5,6 +5,7 @@ package ua.com.bank.bank_card.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -17,14 +18,29 @@ public class Payment {
     private Long id;
 
     private String senderNumber;
+
     private String recipientNumber;
 
     private double amount;
 
-    @OneToMany(mappedBy = "payment", cascade = CascadeType.ALL)
-    private List<PaymentHistory> paymentHistory;
+    private String status;
 
+    @OneToMany(mappedBy = "payment", cascade = CascadeType.ALL)
+    private List<PaymentHistory> paymentHistoryList;
+
+    public Payment() {
+        this.paymentHistoryList = new ArrayList<>();
+    }
     @ManyToOne
     @JoinColumn(name = "card_id")
     private Card card;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 }

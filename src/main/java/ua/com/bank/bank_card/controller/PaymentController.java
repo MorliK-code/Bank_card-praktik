@@ -6,12 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.view.RedirectView;
 import ua.com.bank.bank_card.entity.Card;
-import ua.com.bank.bank_card.entity.Payment;
 import ua.com.bank.bank_card.entity.PaymentHistory;
 import ua.com.bank.bank_card.repository.CardRepository;
-import ua.com.bank.bank_card.service.CardService;
 import ua.com.bank.bank_card.service.PaymentService;
 
 import java.util.List;
@@ -23,7 +20,7 @@ public class PaymentController {
     private final CardRepository cardRepository;
 
     @Autowired
-    public PaymentController(PaymentService paymentService, CardRepository cardRepository ) {
+    public PaymentController(PaymentService paymentService, CardRepository cardRepository) {
         this.paymentService = paymentService;
         this.cardRepository = cardRepository;
     }
@@ -36,7 +33,6 @@ public class PaymentController {
         boolean recipientCardExists = cardRepository.existsByNumber(recipientNumber);
 
         if (!senderCardExists || !recipientCardExists) {
-
             return "redirect:/work?errorUnknownCards";
         }
 
@@ -57,12 +53,11 @@ public class PaymentController {
 
         return "redirect:/work?success";
     }
+
     @GetMapping("/paymenthistory")
     public String viewPaymentHistory(Model model) {
-        List<Object[]> paymentHistory = paymentService.getAllPaymentHistory();
+        List<PaymentHistory> paymentHistory = paymentService.getAllPaymentHistory();
         model.addAttribute("paymentHistory", paymentHistory);
         return "paymenthistory";
     }
-
 }
-
