@@ -9,7 +9,6 @@ import ua.com.bank.bank_card.repository.AccountRepository;
 import ua.com.bank.bank_card.repository.CardRepository;
 import ua.com.bank.bank_card.repository.PaymentRepository;
 
-import java.util.AbstractCollection;
 import java.util.List;
 
 @Service

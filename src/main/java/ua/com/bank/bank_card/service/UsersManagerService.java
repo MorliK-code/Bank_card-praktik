@@ -8,26 +8,19 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ua.com.bank.bank_card.entity.Users;
-import ua.com.bank.bank_card.repository.ClientRepository;
 import ua.com.bank.bank_card.repository.UsersRepository;
 
 @Service
 public class UsersManagerService implements UserDetailsService {
 
     private final UsersRepository usersRepository;
-    private final ClientRepository clientRepository;
 
 
     @Autowired
-    public UsersManagerService(UsersRepository usersRepository, ClientRepository clientRepository) {
+    public UsersManagerService(UsersRepository usersRepository) {
         this.usersRepository = usersRepository;
-        this.clientRepository = clientRepository;
     }
 
-    public boolean getLogicByUser(String username){
-            boolean logic = usersRepository.findAllByUsername(username).isEmpty();
-        return !usersRepository.findAllByUsername(username).isEmpty();
-    }
 
     public Users saveNewUserToDB(Users user){
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));

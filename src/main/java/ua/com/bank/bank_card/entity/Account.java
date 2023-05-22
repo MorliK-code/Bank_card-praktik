@@ -23,14 +23,6 @@ public class Account {
     @OneToMany(mappedBy = "account")
     private List<Card> cards;
 
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
-        for (Card card : cards) {
-            card.setAccount(this);
-            this.setNumber(card.getNumber());
-            this.setBlocked(card.isBlock());
-        }
-    }
     public double getBalance() {
         return balance;
     }

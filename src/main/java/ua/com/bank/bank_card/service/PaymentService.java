@@ -93,9 +93,4 @@ public class PaymentService {
 
         return "redirect:/work?success";
     }
-
-    public boolean isCardBlocked(String cardNumber) {
-        Card card = cardRepository.findByNumber(cardNumber);
-        return card != null && card.isBlock();
-    }
 }
